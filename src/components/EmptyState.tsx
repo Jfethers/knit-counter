@@ -2,7 +2,9 @@ import React from 'react';
 
 const EmptyState = () => {
     return (
-        <div>Add a counter!</div>
+        <div className="empty-state">
+            <div className="button">Add Counter</div>
+        </div>
     )
 }
 
