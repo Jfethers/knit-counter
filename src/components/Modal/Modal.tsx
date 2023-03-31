@@ -9,7 +9,7 @@ const Modal: FunctionComponent<IModalProps> = (props: IModalProps) => {
     const { showModal, children } = props;
 
     return (
-        <div>
+        <div className="modal">
             { showModal ? (
                 <div className="modal-body">{ children }</div>
             ) : (
