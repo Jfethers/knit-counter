@@ -16,8 +16,8 @@
 .modal-overlay {
     .modal-body {
         background-color: white;
-        padding: 15px;
         position: relative;
+        min-width: 300px;
         .modal-contents {
             display: flex;
         }
