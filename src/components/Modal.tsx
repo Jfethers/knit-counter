@@ -1,13 +1,21 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, ReactNode, Ref, RefObject } from 'react';
 
 interface IModalProps {
-    show: boolean,
+    showModal: boolean,
+    children: ReactNode,
 }
 
 const Modal: FunctionComponent<IModalProps> = (props: IModalProps) => {
+    const { showModal, children } = props;
 
     return (
-        <div>hihihi</div>
+        <div>
+            { showModal ? (
+                <div className="modal-body">{ children }</div>
+            ) : (
+            null
+            )}
+        </div>
     )
 }
 
