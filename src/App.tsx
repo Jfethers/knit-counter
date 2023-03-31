@@ -1,6 +1,6 @@
 import React, {FunctionComponent, PropsWithChildren, useState} from 'react';
 
-import './App.css';
+import './App.scss';
 import Counters from './components/Counters/Counters';
 import EmptyState from './components/EmptyState/EmptyState';
 
