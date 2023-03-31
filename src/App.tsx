@@ -1,8 +1,8 @@
 import React, {FunctionComponent, PropsWithChildren, useState} from 'react';
 
 import './App.css';
-import Counters from './components/Counters';
-import EmptyState from './components/EmptyState';
+import Counters from './components/Counters/Counters';
+import EmptyState from './components/EmptyState/EmptyState';
 
 function App() {
   const [ allCounters, setAllCounters ] = useState([]);
