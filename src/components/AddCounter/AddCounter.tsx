@@ -14,21 +14,21 @@ const AddCounter: FunctionComponent<IAddCounterProps> = (props: IAddCounterProps
             <h1>Add Counter</h1>
             <Form
                 onSubmit={onSubmit}
-                initialValues={{
-                    name: '',
-                    startingValue: 0,
-                    color: '#00000',
-                }}
                 render={({ handleSubmit, form, submitting, pristine, values }) => (
-                    <form onSubmit={handleSubmit}>
-                        <div>
-                            <label>Name</label>
-                            <Field name="name" component="input" type="text" placeholder="Counter Name"/>
-                            <label>Starting Value</label>
-                            <Field name="startingValue" component="input" type="text" placeholder="Starting Value"/>
-                            <label>Color</label>
-                            <Field name="color" component="input" type="text" placeholder="Counter Color"/>
+                    <form className="form-body" onSubmit={handleSubmit}>
+                        <div className="field-group">
+                            <label className="label">Counter Name</label>
+                            <Field className="field" name="name" component="input" type="text" placeholder="Counter Name"/>
                         </div>
+                        <div className="field-group">
+                            <label className="label">Starting Value</label>
+                            <Field className="field" name="startingValue" component="input" type="text" placeholder="Starting Value"/>   
+                        </div>
+                        <div className="field-group">
+                            <label className="label">Color</label>
+                            <Field className="field" name="color" component="input" type="text" placeholder="Counter Color"/>
+                        </div>
+
                         <div className="submit">
                             <button type="submit">Submit</button>
                         </div>

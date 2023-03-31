@@ -15,8 +15,18 @@
 
 .modal-overlay {
     .modal-body {
-        height: 500px;
-        width: 500px;
         background-color: white;
+        padding: 15px;
+        position: relative;
+        .modal-contents {
+            display: flex;
+        }
+        .close {
+            cursor: pointer;
+            position: absolute;
+            right: 15px;
+            top: 15px;
+
+        }
     }
 }

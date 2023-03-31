@@ -8,7 +8,7 @@ const EmptyState = () => {
     return (
         <div className="empty-state">
             <div className="button" onClick={() => setShowModal(true)}>Add Counter</div>
-            <Modal showModal={showModal}>
+            <Modal showModal={showModal} setShowModal={setShowModal}>
                 <AddCounter />
             </Modal>
         </div>
