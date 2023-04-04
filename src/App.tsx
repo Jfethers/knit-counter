@@ -11,11 +11,7 @@ function App() {
   return (
     <div className="App">
       <Navigation allCounters={allCounters} />
-      {allCounters && allCounters.length ? (
-        <Counters counters={allCounters} />
-      ) : ( 
-        <EmptyState />
-      )}
+      <Counters counters={allCounters} />
     </div>
   );
 }

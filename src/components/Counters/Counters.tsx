@@ -13,7 +13,7 @@ const Counters: FunctionComponent<ICountersProps> = (props: ICountersProps) => {
     const { counters } = props;
 
     return (
-        <div>
+        <div className="counters-wrapper">
             {counters?.map((counter, index) => {
             let key = crypto.randomUUID();
             return (

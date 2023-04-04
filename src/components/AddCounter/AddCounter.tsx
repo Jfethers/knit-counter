@@ -23,9 +23,9 @@ const AddCounter: FunctionComponent<IAddCounterProps> = (props: IAddCounterProps
             <h1>Add Counter</h1>
             <Form
                 onSubmit={onSubmit}
-                subscription={{errors: true}}
+                subscription={{errors: true, values: true }}
                 render={({ handleSubmit, form, submitting, pristine, values, errors, valid }) => {
-                    console.log('errors', errors);
+                    console.log('values', values);
                     return (
                     <form className="form-body" onSubmit={handleSubmit}>
                         <div className="field-group">
