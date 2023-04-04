@@ -1,15 +1,16 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent, HTMLAttributes, ReactNode } from 'react';
 
 interface IButtonProps {
     children: ReactNode,
     onClick: Function,
+    className: string,
 }
 
 const Button: FunctionComponent<IButtonProps> = (props: IButtonProps) => {
-    const { children, onClick } = props;
+    const { children, onClick, className } = props;
 
     return (
-        <div className="button" onClick={() => onClick()}>
+        <div className={className} onClick={() => onClick()}>
             { children }
         </div>
     )

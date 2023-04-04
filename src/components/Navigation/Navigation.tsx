@@ -14,17 +14,12 @@ const Navigation: FunctionComponent<INavigationProps> = (props: INavigationProps
     return (
         <div className="navigation">
             <h1>Knit Counter</h1>
-
-            {allCounters.length === 0 ? (
-                <div className="add-button">
-                    <Button onClick={() => setShowModal(true)}>ADD COUNTER</Button>
-                    <Modal showModal={showModal} setShowModal={setShowModal}>
-                        <AddCounter setShowModal={setShowModal} />
-                    </Modal>
-                </div>
-            ) : (
-                null
-            )}
+            <div className="add-button">
+                <Button className="button"onClick={() => setShowModal(true)}>ADD COUNTER</Button>
+                <Modal showModal={showModal} setShowModal={setShowModal}>
+                    <AddCounter setShowModal={setShowModal} />
+                </Modal>
+            </div>
         </div>
     )
 }

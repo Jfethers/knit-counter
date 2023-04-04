@@ -21,8 +21,8 @@ const Counter: FunctionComponent<ICounterProps> = (props: ICounterProps) => {
         <div className="counter-base">
             <div className="close" onClick={() => handleDelete()}>X</div>
             <div className="counter-details">
-                <div>{name}</div>
-                <div>{startingValue}</div>
+                <div>name: {name}</div>
+                <div>Count: {startingValue}</div>
             </div>
             <div className="counter-buttons">
                 <div className="counter-button">Increase</div>

@@ -1,6 +1,6 @@
 @use 'components/AddCounter/AddCounter.scss';
-// @use 'components/Counter/Counter.scss';
-// @use 'components/Counters/Counters.scss';
+@use 'components/Counter/Counter.scss';
+@use 'components/Counters/Counters.scss';
 @use 'components/Modal/Modal.scss';
 @use 'components/Navigation/Navigation.scss';
 @use 'components/Button/Button.scss';
