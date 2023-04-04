@@ -10,6 +10,7 @@ interface ICounterProps {
 const Counter: FunctionComponent<ICounterProps> = (props: ICounterProps) => {
     const { name, startingValue, color, index } = props;
     const handleDelete = () => {
+        console.log('?????')
         const allCounters = JSON.parse(localStorage.getItem('counters') || '[]');
         const counters = [...allCounters]
         console.log('counters', counters);
