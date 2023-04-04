@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useState, useEffect } from 'react';
 import { Form, Field } from 'react-final-form';
+import * as validate from '../../utils/validations'
 
 interface IAddCounterProps {
     setShowModal: Function
@@ -21,26 +22,51 @@ const AddCounter: FunctionComponent<IAddCounterProps> = (props: IAddCounterProps
             <h1>Add Counter</h1>
             <Form
                 onSubmit={onSubmit}
-                render={({ handleSubmit, form, submitting, pristine, values }) => (
+                subscription={{errors: true}}
+                render={({ handleSubmit, form, submitting, pristine, values, errors }) => {
+                    console.log('errors', errors);
+                    return (
                     <form className="form-body" onSubmit={handleSubmit}>
                         <div className="field-group">
                             <label className="label">Counter Name</label>
-                            <Field className="field" name="name" component="input" type="text" placeholder="Counter Name"/>
+                            <Field name="name" className="field" component="input" type="text">
+                                {({ input, meta }) => (
+                                <>
+                                    <input {...input} type="text" placeholder="Name" />
+                                    {meta.error && meta.touched && <span>{meta.error}</span>}
+                                </>
+                                )}
+                            </Field>
                         </div>
                         <div className="field-group">
-                            <label className="label">Starting Value</label>
-                            <Field className="field" name="startingValue" component="input" type="text" placeholder="Starting Value"/>   
+                            <label className="label">Starting Value</label> 
+                            <Field name="startingValue" className="field" component="input" type="text">
+                                {({ input, meta }) => (
+                                <>
+                                    <input {...input} type="text" placeholder="Starting Value" />
+                                    {meta.error && meta.touched && <span>{meta.error}</span>}
+                                </>
+                                )}
+                            </Field> 
                         </div>
                         <div className="field-group">
                             <label className="label">Color</label>
-                            <Field className="field" name="color" component="input" type="text" placeholder="Counter Color"/>
+                            <Field name="color" className="field" validate={validate.hex} component="input" type="text">
+                                {({ input, meta }) => (
+                                <>
+                                    <input {...input} type="text" placeholder="Color" />
+                                    {meta.error && meta.touched && <span>{meta.error}</span>}
+                                </>
+                                )}
+                            </Field>
                         </div>
                         <div className="submit">
                             <button type="submit">Submit</button>
                         </div>
                     </form>
 
-                )}
+                )
+                }}
             >
             </Form>
         </div>

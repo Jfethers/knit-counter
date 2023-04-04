@@ -10,6 +10,7 @@ interface ICounterProps {
 const Counter: FunctionComponent<ICounterProps> = (props: ICounterProps) => {
     const { name, startingValue, color, index } = props;
 
+    console.log('color', color);
     const handleDelete = () => {
         const allCounters = JSON.parse(localStorage.getItem('counters') || '[]');
         const counters = [...allCounters]
@@ -18,7 +19,7 @@ const Counter: FunctionComponent<ICounterProps> = (props: ICounterProps) => {
     }
 
     return (
-        <div className="counter-base">
+        <div className="counter-base" style={{ backgroundColor: `#${color}` }}>
             <div className="close" onClick={() => handleDelete()}>X</div>
             <div className="counter-details">
                 <div>name: {name}</div>
