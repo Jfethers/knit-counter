@@ -5,10 +5,11 @@ import Counters from './components/Counters/Counters';
 import EmptyState from './components/EmptyState/EmptyState';
 
 function App() {
-  const [ allCounters, setAllCounters ] = useState([]);
+  const allCounters = JSON.parse(localStorage.getItem('counters') || '[]');
+
   return (
     <div className="App">
-      {allCounters.length ? (
+      {allCounters && allCounters.length ? (
         <Counters counters={allCounters} />
       ) : ( 
         <EmptyState />
