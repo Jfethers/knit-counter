@@ -9,7 +9,7 @@ const Button: FunctionComponent<IButtonProps> = (props: IButtonProps) => {
     const { children, onClick } = props;
 
     return (
-        <div className="button">
+        <div className="button" onClick={() => onClick()}>
             { children }
         </div>
     )
