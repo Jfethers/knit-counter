@@ -12,7 +12,6 @@ interface IButtonProps {
 const Button: FunctionComponent<IButtonProps> = (props: IButtonProps) => {
     const { children, onClick, className, disabled } = props;
 
-    console.log('disabled', disabled);
     const handleClick = (onClick: Function) => {
         if (disabled) {
             return
