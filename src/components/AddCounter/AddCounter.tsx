@@ -4,17 +4,17 @@ import * as validate from '../../utils/validations'
 import Button from '../Button/Button';
 
 interface IAddCounterProps {
-    setShowModal: Function
+    setShowModal: Function,
+    counters: [],
 }
 
 const AddCounter: FunctionComponent<IAddCounterProps> = (props: IAddCounterProps) => {
-    const [ counters, setCounters ] = useState([]);
-    const { setShowModal } = props;
+    const { setShowModal, counters } = props;
 
     const onSubmit = (values: object) => {
-        const allCounters = [];
-        allCounters.push(values);
-        localStorage.setItem("counters", JSON.stringify(allCounters));
+        const countersClone : object[] = [...counters];
+        countersClone.push(values);
+        localStorage.setItem("counters", JSON.stringify(countersClone));
         setShowModal(false);
     }
 

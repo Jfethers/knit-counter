@@ -1,6 +1,5 @@
 .counter-base {
-    max-width: 200px;
-    height: 200px;
+    height: 144px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,6 +7,8 @@
     position: relative;
     text-align: left;
     z-index: -1;
+    padding: 50px;
+    margin: 10px;
     .close {
         position: absolute;
         top: 15px;

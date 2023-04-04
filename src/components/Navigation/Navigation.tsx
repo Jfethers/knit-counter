@@ -4,11 +4,11 @@ import Modal from '../Modal/Modal';
 import Button from '../Button/Button'
 
 interface INavigationProps {
-    allCounters: []
+    counters: []
 }
 
 const Navigation: FunctionComponent<INavigationProps> = (props: INavigationProps) => {
-    const { allCounters } = props;
+    const { counters } = props;
     const [ showModal, setShowModal ] = useState(false);
 
     return (
@@ -17,7 +17,7 @@ const Navigation: FunctionComponent<INavigationProps> = (props: INavigationProps
             <div className="add-button">
                 <Button className="button"onClick={() => setShowModal(true)}>ADD COUNTER</Button>
                 <Modal showModal={showModal} setShowModal={setShowModal}>
-                    <AddCounter setShowModal={setShowModal} />
+                    <AddCounter counters={counters} setShowModal={setShowModal} />
                 </Modal>
             </div>
         </div>

@@ -9,12 +9,12 @@ interface ICounterProps {
 
 const Counter: FunctionComponent<ICounterProps> = (props: ICounterProps) => {
     const { name, startingValue, color, index } = props;
-
-    console.log('color', color);
     const handleDelete = () => {
         const allCounters = JSON.parse(localStorage.getItem('counters') || '[]');
         const counters = [...allCounters]
+        console.log('counters', counters);
         counters.splice(index, 1);
+        console.log('counters post splice', counters);
         localStorage.setItem("counters", JSON.stringify(counters));
     }
 

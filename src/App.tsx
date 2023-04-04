@@ -6,12 +6,12 @@ import EmptyState from './components/EmptyState/EmptyState';
 import Navigation from './components/Navigation/Navigation';
 
 function App() {
-  const allCounters = JSON.parse(localStorage.getItem('counters') || '[]');
+  const counters = JSON.parse(localStorage.getItem('counters') || '[]');
 
   return (
     <div className="App">
-      <Navigation allCounters={allCounters} />
-      <Counters counters={allCounters} />
+      <Navigation counters={counters} />
+      <Counters counters={counters} />
     </div>
   );
 }
