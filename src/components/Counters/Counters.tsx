@@ -14,7 +14,7 @@ const Counters: FunctionComponent<ICountersProps> = (props: ICountersProps) => {
 
     return (
         <div>
-            {counters.map((counter, index) => {
+            {counters?.map((counter, index) => {
             let key = crypto.randomUUID();
             return (
                 <Counter key={key} index={index} name={counter.name} color={counter.color} startingValue={counter.startingValue}/>

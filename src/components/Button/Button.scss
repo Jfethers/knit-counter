@@ -16,4 +16,11 @@
     &:hover {
         background-color: #EA1C49;
     }
+    &.disabled {
+        background-color: #adb5bd;
+        cursor: default;
+        &:hover {
+            background-color: #adb5bd;
+        }
+    }
 }

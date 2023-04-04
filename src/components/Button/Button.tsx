@@ -1,17 +1,28 @@
 import React, { FunctionComponent, HTMLAttributes, ReactNode } from 'react';
+import classNames from 'classnames';
 
 interface IButtonProps {
     children?: ReactNode,
     onClick: Function,
     className?: string,
     type?: string,
+    disabled? : boolean,
 }
 
 const Button: FunctionComponent<IButtonProps> = (props: IButtonProps) => {
-    const { children, onClick, className } = props;
+    const { children, onClick, className, disabled } = props;
+
+    console.log('disabled', disabled);
+    const handleClick = (onClick: Function) => {
+        if (disabled) {
+            return
+        } else {
+            return onClick();
+        }
+    }
 
     return (
-        <div className={className} onClick={() => onClick()}>
+        <div className={classNames(className, `${disabled ? 'disabled' : ''}`)} onClick={() => onClick()}>
             { children }
         </div>
     )

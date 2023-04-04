@@ -24,7 +24,7 @@ const AddCounter: FunctionComponent<IAddCounterProps> = (props: IAddCounterProps
             <Form
                 onSubmit={onSubmit}
                 subscription={{errors: true}}
-                render={({ handleSubmit, form, submitting, pristine, values, errors }) => {
+                render={({ handleSubmit, form, submitting, pristine, values, errors, valid }) => {
                     console.log('errors', errors);
                     return (
                     <form className="form-body" onSubmit={handleSubmit}>
@@ -62,7 +62,7 @@ const AddCounter: FunctionComponent<IAddCounterProps> = (props: IAddCounterProps
                             </Field>
                         </div>
                         <div className="submit">
-                            <Button onClick={() => onSubmit(values)} type="submit">Submit</Button>
+                            <Button className="button" disabled={!valid || pristine} onClick={() => onSubmit(values)} type="submit">Submit</Button>
                         </div>
                     </form>
 
