@@ -1,9 +1,10 @@
 import React, { FunctionComponent, HTMLAttributes, ReactNode } from 'react';
 
 interface IButtonProps {
-    children: ReactNode,
+    children?: ReactNode,
     onClick: Function,
-    className: string,
+    className?: string,
+    type?: string,
 }
 
 const Button: FunctionComponent<IButtonProps> = (props: IButtonProps) => {

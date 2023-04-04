@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useState, useEffect } from 'react';
 import { Form, Field } from 'react-final-form';
 import * as validate from '../../utils/validations'
+import Button from '../Button/Button';
 
 interface IAddCounterProps {
     setShowModal: Function
@@ -61,7 +62,7 @@ const AddCounter: FunctionComponent<IAddCounterProps> = (props: IAddCounterProps
                             </Field>
                         </div>
                         <div className="submit">
-                            <button type="submit">Submit</button>
+                            <Button onClick={() => onSubmit(values)} type="submit">Submit</Button>
                         </div>
                     </form>
 
