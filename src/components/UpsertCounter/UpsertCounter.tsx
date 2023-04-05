@@ -24,6 +24,7 @@ const UpsertCounter: FunctionComponent<IUpsertCounterProps> = (props: IUpsertCou
             localStorage.setItem("counters", JSON.stringify(countersClone));
         }
         setShowModal(false);
+        window.dispatchEvent(new Event('storage'))
     }
 
     return (

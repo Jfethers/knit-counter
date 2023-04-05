@@ -4,7 +4,11 @@ import Modal from '../Modal/Modal';
 import Button from '../Button/Button'
 
 interface INavigationProps {
-    counters: []
+    counters: {
+        name: string,
+        startingValue: number,
+        color: string
+    }[]
 }
 
 const Navigation: FunctionComponent<INavigationProps> = (props: INavigationProps) => {

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent, useState, useEffect } from 'react';
 import { ReactComponent as Close } from '../../icons/xmark-solid.svg'
 import { ReactComponent as Edit } from '../../icons/pencil-solid.svg';
 import { ReactComponent as Plus } from '../../icons/plus-solid.svg';
@@ -25,6 +25,7 @@ const Counter: FunctionComponent<ICounterProps> = (props: ICounterProps) => {
         const counters = [...allCounters]
         counters.splice(index, 1);
         localStorage.setItem("counters", JSON.stringify(counters));
+        window.dispatchEvent(new Event('storage'))
     }
 
     return (
