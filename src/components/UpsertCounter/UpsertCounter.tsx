@@ -3,29 +3,39 @@ import { Form, Field } from 'react-final-form';
 import * as validate from '../../utils/validations'
 import Button from '../Button/Button';
 
-interface IAddCounterProps {
+interface IUpsertCounterProps {
     setShowModal: Function,
     counters: [],
+    isNew: boolean,
+    counter?: {},
 }
 
-const AddCounter: FunctionComponent<IAddCounterProps> = (props: IAddCounterProps) => {
-    const { setShowModal, counters } = props;
+const UpsertCounter: FunctionComponent<IUpsertCounterProps> = (props: IUpsertCounterProps) => {
+    const { setShowModal, counters, isNew, counter } = props;
 
     const onSubmit = (values: object) => {
+        // isNew
         const countersClone : object[] = [...counters];
         countersClone.push(values);
         localStorage.setItem("counters", JSON.stringify(countersClone));
         setShowModal(false);
+
+        // !isNew
+
+        // find specific counter
+        // remove that counter from counters
+        // insert this counter at same index
+        // setItems with new counter array
     }
 
     return (
         <div className="form">
-            <h1>Add Counter</h1>
+            <h1>{isNew ? 'Add Counter' : 'Edit Counter'}</h1>
             <Form
                 onSubmit={onSubmit}
                 subscription={{errors: true, values: true }}
+                initialValues={counter}
                 render={({ handleSubmit, form, submitting, pristine, values, errors, valid }) => {
-                    console.log('values', values);
                     return (
                     <form className="form-body" onSubmit={handleSubmit}>
                         <div className="field-group">
@@ -74,4 +84,4 @@ const AddCounter: FunctionComponent<IAddCounterProps> = (props: IAddCounterProps
     )
 }
 
-export default AddCounter;
+export default UpsertCounter;

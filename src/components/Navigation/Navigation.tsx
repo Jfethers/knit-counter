@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState } from 'react';
-import AddCounter from '../AddCounter/AddCounter';
+import UpsertCounter from '../UpsertCounter/UpsertCounter';
 import Modal from '../Modal/Modal';
 import Button from '../Button/Button'
 
@@ -17,7 +17,7 @@ const Navigation: FunctionComponent<INavigationProps> = (props: INavigationProps
             <div className="add-button">
                 <Button className="button"onClick={() => setShowModal(true)}>ADD COUNTER</Button>
                 <Modal showModal={showModal} setShowModal={setShowModal}>
-                    <AddCounter counters={counters} setShowModal={setShowModal} />
+                    <UpsertCounter isNew={true} counters={counters} setShowModal={setShowModal} />
                 </Modal>
             </div>
         </div>

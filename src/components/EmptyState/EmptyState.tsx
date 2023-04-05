@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Modal from '../Modal/Modal';
-import AddCounter from '../AddCounter/AddCounter';
 
 const EmptyState = () => {
     const [ showModal, setShowModal ] = useState(false);
