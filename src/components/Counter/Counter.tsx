@@ -1,5 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { ReactComponent as Close } from '../../icons/xmark-solid.svg'
+import { ReactComponent as Edit } from '../../icons/pencil-solid.svg';
+import { ReactComponent as Plus } from '../../icons/plus-solid.svg';
+import { ReactComponent as Minus } from '../../icons/minus-solid.svg';
 
 interface ICounterProps {
     name: string,
@@ -22,14 +25,15 @@ const Counter: FunctionComponent<ICounterProps> = (props: ICounterProps) => {
 
     return (
         <div className="counter-base" style={{ backgroundColor: `#${color}` }}>
-            <Close className="close" onClick={() => handleDelete()} />
+            <Close className="close icon" onClick={() => handleDelete()} />
+            <Edit className="edit icon" />
             <div className="counter-details">
                 <div>name: {name}</div>
                 <div>Count: {startingValue}</div>
             </div>
             <div className="counter-buttons">
-                <div className="counter-button">Increase</div>
-                <div className="counter-button">Decrease</div>
+                <Plus className="plus icon" />
+                <Minus className="minus icon" />
             </div>
         </div>
     )
