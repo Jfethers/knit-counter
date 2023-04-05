@@ -21,7 +21,7 @@ const Button: FunctionComponent<IButtonProps> = (props: IButtonProps) => {
     }
 
     return (
-        <div className={classNames(className, `${disabled ? 'disabled' : ''}`)} onClick={() => onClick()}>
+        <div className={classNames(className, `${disabled ? 'disabled' : ''}`)} onClick={() => handleClick(onClick)}>
             { children }
         </div>
     )

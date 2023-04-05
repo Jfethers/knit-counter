@@ -32,9 +32,12 @@ const UpsertCounter: FunctionComponent<IUpsertCounterProps> = (props: IUpsertCou
             <h1>{isNew ? 'Add Counter' : 'Edit Counter'}</h1>
             <Form
                 onSubmit={onSubmit}
-                subscription={{errors: true, values: true }}
+                subscription={{errors: true, values: true, valid: true, pristine: true }}
                 initialValues={counter}
                 render={({ handleSubmit, form, submitting, pristine, values, errors, valid }) => {
+                    console.log('valid', valid);
+                    console.log('erorrs', errors);
+                    console.log('pristine', pristine);
                     return (
                     <form className="form-body" onSubmit={handleSubmit}>
                         <div className="field-group">
@@ -71,7 +74,7 @@ const UpsertCounter: FunctionComponent<IUpsertCounterProps> = (props: IUpsertCou
                             </Field>
                         </div>
                         <div className="submit">
-                            <Button className="button" disabled={!valid || pristine} onClick={() => onSubmit(values)} type="submit">Submit</Button>
+                            <Button className="button" disabled={!valid} onClick={() => onSubmit(values)} type="submit">Submit</Button>
                         </div>
                     </form>
                 )
