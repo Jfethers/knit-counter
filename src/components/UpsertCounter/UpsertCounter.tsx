@@ -3,6 +3,12 @@ import { Form, Field } from 'react-final-form';
 import * as validate from '../../utils/validations'
 import Button from '../Button/Button';
 
+type Counter = {
+    name: string,
+    color: string,
+    startingValue: string,
+}
+
 interface IUpsertCounterProps {
     setShowModal: Function,
     counters: Array<object>,
@@ -14,7 +20,7 @@ interface IUpsertCounterProps {
 const UpsertCounter: FunctionComponent<IUpsertCounterProps> = (props: IUpsertCounterProps) => {
     const { setShowModal, counters, isNew, counter, index = 0 } = props;
 
-    const onSubmit = (values: object) => {
+    const onSubmit = (values: Counter) => {
         const countersClone : object[] = [...counters];
         if (isNew) {
             countersClone.push(values);

@@ -28,6 +28,13 @@ const Counter: FunctionComponent<ICounterProps> = (props: ICounterProps) => {
         window.dispatchEvent(new Event('storage'))
     }
 
+    const handleIncrement = () => {
+        console.log('counter', counter);
+        const newCounter = {...counter}
+        counters.splice(index, 1, newCounter);
+        window.dispatchEvent(new Event('storage'))
+    }
+
     return (
         <>
         <div className="counter-base" style={{ backgroundColor: `#${counter.color}` }}>
@@ -38,7 +45,7 @@ const Counter: FunctionComponent<ICounterProps> = (props: ICounterProps) => {
                 <div>Count: {counter.startingValue}</div>
             </div>
             <div className="counter-buttons">
-                <Plus className="plus icon" />
+                <Plus className="plus icon" onClick={() => handleIncrement()} />
                 <Minus className="minus icon" />
             </div>
         </div>
