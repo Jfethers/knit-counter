@@ -23,9 +23,7 @@ const Counter: FunctionComponent<ICounterProps> = (props: ICounterProps) => {
     const handleDelete = () => {
         const allCounters = JSON.parse(localStorage.getItem('counters') || '[]');
         const counters = [...allCounters]
-        console.log('counters', counters);
         counters.splice(index, 1);
-        console.log('counters post splice', counters);
         localStorage.setItem("counters", JSON.stringify(counters));
     }
 
@@ -42,7 +40,7 @@ const Counter: FunctionComponent<ICounterProps> = (props: ICounterProps) => {
                 <Minus className="minus icon" />
             </div>
             <Modal showModal={showModal} setShowModal={setShowModal}>
-                <UpsertCounter isNew={false} counters={counters} counter={counter} setShowModal={setShowModal} />
+                <UpsertCounter index={index} isNew={false} counters={counters} counter={counter} setShowModal={setShowModal} />
             </Modal>
         </div>
     )

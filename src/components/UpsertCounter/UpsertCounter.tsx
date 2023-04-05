@@ -8,25 +8,23 @@ interface IUpsertCounterProps {
     counters: Array<object>,
     isNew: boolean,
     counter?: {},
+    index?: number,
 }
 
 const UpsertCounter: FunctionComponent<IUpsertCounterProps> = (props: IUpsertCounterProps) => {
-    const { setShowModal, counters, isNew, counter } = props;
+    const { setShowModal, counters, isNew, counter, index = 0 } = props;
 
     console.log('counter', counter);
     const onSubmit = (values: object) => {
-        // isNew
         const countersClone : object[] = [...counters];
-        countersClone.push(values);
-        localStorage.setItem("counters", JSON.stringify(countersClone));
+        if (isNew) {
+            countersClone.push(values);
+            localStorage.setItem("counters", JSON.stringify(countersClone));
+        } else {
+            countersClone.splice(index, 1, values);
+            localStorage.setItem("counters", JSON.stringify(countersClone));
+        }
         setShowModal(false);
-
-        // !isNew
-
-        // find specific counter
-        // remove that counter from counters
-        // insert this counter at same index
-        // setItems with new counter array
     }
 
     return (
