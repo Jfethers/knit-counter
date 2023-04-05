@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import { ReactComponent as Close } from '../../icons/xmark-solid.svg'
 
 interface ICounterProps {
     name: string,
@@ -21,7 +22,7 @@ const Counter: FunctionComponent<ICounterProps> = (props: ICounterProps) => {
 
     return (
         <div className="counter-base" style={{ backgroundColor: `#${color}` }}>
-            <div className="close" onClick={() => handleDelete()}>X</div>
+            <Close className="close" onClick={() => handleDelete()} />
             <div className="counter-details">
                 <div>name: {name}</div>
                 <div>Count: {startingValue}</div>

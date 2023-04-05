@@ -1,5 +1,7 @@
 import React, { FunctionComponent, ReactNode, Ref, RefObject } from 'react';
 import classNames from 'classnames';
+import { ReactComponent as Close } from '../../icons/xmark-solid.svg';
+
 
 interface IModalProps {
     showModal: boolean,
@@ -18,7 +20,7 @@ const Modal: FunctionComponent<IModalProps> = (props: IModalProps) => {
         )}>
             { showModal ? (
                 <div className="modal-body">
-                    <div className="close" onClick={() => setShowModal(false)}>X</div>
+                    <Close className="close" onClick={() => setShowModal(false)}/>
                     <div className="modal-contents">
                     { children }
                     </div>
