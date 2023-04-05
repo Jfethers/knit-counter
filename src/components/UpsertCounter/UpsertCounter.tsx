@@ -5,7 +5,7 @@ import Button from '../Button/Button';
 
 interface IUpsertCounterProps {
     setShowModal: Function,
-    counters: [],
+    counters: Array<object>,
     isNew: boolean,
     counter?: {},
 }
@@ -13,6 +13,7 @@ interface IUpsertCounterProps {
 const UpsertCounter: FunctionComponent<IUpsertCounterProps> = (props: IUpsertCounterProps) => {
     const { setShowModal, counters, isNew, counter } = props;
 
+    console.log('counter', counter);
     const onSubmit = (values: object) => {
         // isNew
         const countersClone : object[] = [...counters];
