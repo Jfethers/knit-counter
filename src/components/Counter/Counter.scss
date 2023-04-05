@@ -1,13 +1,15 @@
 .counter-base {
-    height: 144px;
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
+    flex: 1 1 auto;
     position: relative;
+    align-items: center;
+    height: 144px;
     text-align: left;
     padding: 50px;
     margin: 10px;
+    min-width: 10vw;
     .counter-details {
         color: #ffffff;
         font-weight: 600;
