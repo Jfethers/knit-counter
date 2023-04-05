@@ -28,6 +28,7 @@ const Counter: FunctionComponent<ICounterProps> = (props: ICounterProps) => {
     }
 
     return (
+        <>
         <div className="counter-base" style={{ backgroundColor: `#${counter.color}` }}>
             <Close className="close icon" onClick={() => handleDelete()} />
             <Edit className="edit icon" onClick={() => setShowModal(true)}/>
@@ -39,10 +40,11 @@ const Counter: FunctionComponent<ICounterProps> = (props: ICounterProps) => {
                 <Plus className="plus icon" />
                 <Minus className="minus icon" />
             </div>
-            <Modal showModal={showModal} setShowModal={setShowModal}>
-                <UpsertCounter index={index} isNew={false} counters={counters} counter={counter} setShowModal={setShowModal} />
-            </Modal>
         </div>
+        <Modal showModal={showModal} setShowModal={setShowModal}>
+            <UpsertCounter index={index} isNew={false} counters={counters} counter={counter} setShowModal={setShowModal} />
+        </Modal>
+        </>
     )
 }
 

@@ -14,7 +14,6 @@ interface IUpsertCounterProps {
 const UpsertCounter: FunctionComponent<IUpsertCounterProps> = (props: IUpsertCounterProps) => {
     const { setShowModal, counters, isNew, counter, index = 0 } = props;
 
-    console.log('counter', counter);
     const onSubmit = (values: object) => {
         const countersClone : object[] = [...counters];
         if (isNew) {
@@ -74,7 +73,6 @@ const UpsertCounter: FunctionComponent<IUpsertCounterProps> = (props: IUpsertCou
                             <Button className="button" disabled={!valid || pristine} onClick={() => onSubmit(values)} type="submit">Submit</Button>
                         </div>
                     </form>
-
                 )
                 }}
             >
