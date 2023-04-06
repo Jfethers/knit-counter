@@ -1,12 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import Counter from '../Counter/Counter'
+import { CountersType } from '../../types/Counters';
 
 interface ICountersProps {
-    counters: {
-        name: string,
-        startingValue: number,
-        color: string
-    }[]
+    counters: CountersType
 }
 
 const Counters: FunctionComponent<ICountersProps> = (props: ICountersProps) => {

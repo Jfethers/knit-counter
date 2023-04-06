@@ -8,8 +8,8 @@ import { CountersType } from '../../types/Counters'
 interface IUpsertCounterProps {
     setShowModal: Function,
     counters: CountersType,
+    counter?: CounterType,
     isNew: boolean,
-    counter?: {},
     index?: number,
 }
 

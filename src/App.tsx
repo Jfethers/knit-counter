@@ -14,10 +14,9 @@ function App() {
 
   useEffect(() => {
     getStorage();
-
     window.addEventListener('storage', (e: Event) => getStorage());
     return () => window.removeEventListener('storage', (e: Event) => getStorage());
-}, [])
+  }, [])
 
   return (
     <div className="App">
