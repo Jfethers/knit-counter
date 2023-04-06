@@ -17,16 +17,16 @@ const UpsertCounter: FunctionComponent<IUpsertCounterProps> = (props: IUpsertCou
     const { setShowModal, counters, isNew, counter, index = 0 } = props;
 
     const onSubmit = (values: CounterType) => {
-        const countersClone : object[] = [...counters];
+        const allCounters : CountersType = [...counters];
         const parsedValue = parseInt(values.startingValue as string);
         values.startingValue = parsedValue as number;
 
         if (isNew) {
-            countersClone.push(values);
-            localStorage.setItem("counters", JSON.stringify(countersClone));
+            allCounters.push(values);
+            localStorage.setItem("counters", JSON.stringify(allCounters));
         } else {
-            countersClone.splice(index, 1, values);
-            localStorage.setItem("counters", JSON.stringify(countersClone));
+            allCounters.splice(index, 1, values);
+            localStorage.setItem("counters", JSON.stringify(allCounters));
         }
         setShowModal(false);
         window.dispatchEvent(new Event('storage'))
@@ -39,7 +39,7 @@ const UpsertCounter: FunctionComponent<IUpsertCounterProps> = (props: IUpsertCou
                 onSubmit={onSubmit}
                 subscription={{errors: true, values: true, valid: true, pristine: true }}
                 initialValues={counter}
-                render={({ handleSubmit, form, submitting, pristine, values, errors, valid }) => {
+                render={({ handleSubmit, values, valid }) => {
                     return (
                     <form className="form-body" onSubmit={handleSubmit}>
                         <div className="field-group">

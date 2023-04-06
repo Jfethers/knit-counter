@@ -19,18 +19,13 @@ const Counter: FunctionComponent<ICounterProps> = (props: ICounterProps) => {
     const [ showModal, setShowModal ] = useState(false);
 
     const handleDelete = () => {
-        const allCounters = JSON.parse(localStorage.getItem('counters') || '[]');
-        const counters = [...allCounters]
         counters.splice(index, 1);
         localStorage.setItem("counters", JSON.stringify(counters));
         window.dispatchEvent(new Event('storage'))
     }
 
     const handleIncrement = () => {
-        const allCounters = JSON.parse(localStorage.getItem('counters') || '[]');
-        const counters = [...allCounters];
         const newCounter = {...counter}
-
         let startingValue = newCounter.startingValue as number;
         startingValue += 1;
         newCounter.startingValue = startingValue;
@@ -40,10 +35,7 @@ const Counter: FunctionComponent<ICounterProps> = (props: ICounterProps) => {
     }
 
     const handleDecrement = () => {
-        const allCounters = JSON.parse(localStorage.getItem('counters') || '[]');
-        const counters = [...allCounters];
         const newCounter = {...counter}
-
         if (newCounter.startingValue == 0) return;
         let startingValue = newCounter.startingValue as number;
         startingValue -= 1;
