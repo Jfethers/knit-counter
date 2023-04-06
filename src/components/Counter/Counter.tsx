@@ -12,7 +12,7 @@ interface ICounterProps {
     counter: {
         color: string,
         name: string,
-        startingValue: string,
+        startingValue: number,
     },
 }
 
@@ -29,9 +29,25 @@ const Counter: FunctionComponent<ICounterProps> = (props: ICounterProps) => {
     }
 
     const handleIncrement = () => {
+        const allCounters = JSON.parse(localStorage.getItem('counters') || '[]');
+        const counters = [...allCounters];
         const newCounter = {...counter}
-        newCounter.startingValue = newCounter.startingValue + 1;
+
+        newCounter.startingValue += 1 ;
         counters.splice(index, 1, newCounter);
+        localStorage.setItem("counters", JSON.stringify(counters));
+        window.dispatchEvent(new Event('storage'))
+    }
+
+    const handleDecrement = () => {
+        const allCounters = JSON.parse(localStorage.getItem('counters') || '[]');
+        const counters = [...allCounters];
+        const newCounter = {...counter}
+
+        if (newCounter.startingValue == 0) return;
+        newCounter.startingValue -= 1;
+        counters.splice(index, 1, newCounter);
+        localStorage.setItem("counters", JSON.stringify(counters));
         window.dispatchEvent(new Event('storage'))
     }
 
@@ -46,7 +62,7 @@ const Counter: FunctionComponent<ICounterProps> = (props: ICounterProps) => {
             </div>
             <div className="counter-buttons">
                 <Plus className="plus icon" onClick={() => handleIncrement()} />
-                <Minus className="minus icon" />
+                <Minus className="minus icon" onClick={() => handleDecrement()} />
             </div>
         </div>
         <Modal showModal={showModal} setShowModal={setShowModal}>

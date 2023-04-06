@@ -4,7 +4,7 @@ import Counter from '../Counter/Counter'
 interface ICountersProps {
     counters: {
         name: string,
-        startingValue: string,
+        startingValue: number,
         color: string
     }[]
 }

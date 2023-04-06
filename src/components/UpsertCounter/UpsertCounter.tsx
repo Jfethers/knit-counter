@@ -6,7 +6,7 @@ import Button from '../Button/Button';
 type Counter = {
     name: string,
     color: string,
-    startingValue: string | number,
+    startingValue: number | string,
 }
 
 interface IUpsertCounterProps {
@@ -25,13 +25,10 @@ const UpsertCounter: FunctionComponent<IUpsertCounterProps> = (props: IUpsertCou
         const parsedValue = parseInt(values.startingValue as string);
         values.startingValue = parsedValue as number;
 
-        console.log('values', values);
         if (isNew) {
             countersClone.push(values);
             localStorage.setItem("counters", JSON.stringify(countersClone));
         } else {
-            // const parsedValue = parseInt(values.startingValue);
-
             countersClone.splice(index, 1, values);
             localStorage.setItem("counters", JSON.stringify(countersClone));
         }
