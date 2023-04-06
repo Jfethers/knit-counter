@@ -2,13 +2,10 @@ import React, { FunctionComponent, useState } from 'react';
 import UpsertCounter from '../UpsertCounter/UpsertCounter';
 import Modal from '../Modal/Modal';
 import Button from '../Button/Button'
+import { CountersType } from '../../types/Counters';
 
 interface INavigationProps {
-    counters: {
-        name: string,
-        startingValue: number,
-        color: string
-    }[]
+    counters: CountersType
 }
 
 const Navigation: FunctionComponent<INavigationProps> = (props: INavigationProps) => {

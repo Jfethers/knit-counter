@@ -1,19 +1,17 @@
-import React, { FunctionComponent, useState, useEffect } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import { ReactComponent as Close } from '../../icons/xmark-solid.svg'
 import { ReactComponent as Edit } from '../../icons/pencil-solid.svg';
 import { ReactComponent as Plus } from '../../icons/plus-solid.svg';
 import { ReactComponent as Minus } from '../../icons/minus-solid.svg';
 import Modal from '../Modal/Modal';
 import UpsertCounter from '../UpsertCounter/UpsertCounter';
+import { CounterType } from '../../types/Counter';
+import { CountersType } from '../../types/Counters';
 
 interface ICounterProps {
     index: number,
-    counters: Array<object>,
-    counter: {
-        color: string,
-        name: string,
-        startingValue: number,
-    },
+    counters: CountersType,
+    counter: CounterType,
 }
 
 const Counter: FunctionComponent<ICounterProps> = (props: ICounterProps) => {
@@ -33,7 +31,9 @@ const Counter: FunctionComponent<ICounterProps> = (props: ICounterProps) => {
         const counters = [...allCounters];
         const newCounter = {...counter}
 
-        newCounter.startingValue += 1 ;
+        let startingValue = newCounter.startingValue as number;
+        startingValue += 1;
+        newCounter.startingValue = startingValue;
         counters.splice(index, 1, newCounter);
         localStorage.setItem("counters", JSON.stringify(counters));
         window.dispatchEvent(new Event('storage'))
@@ -45,7 +45,9 @@ const Counter: FunctionComponent<ICounterProps> = (props: ICounterProps) => {
         const newCounter = {...counter}
 
         if (newCounter.startingValue == 0) return;
-        newCounter.startingValue -= 1;
+        let startingValue = newCounter.startingValue as number;
+        startingValue -= 1;
+        newCounter.startingValue = startingValue;
         counters.splice(index, 1, newCounter);
         localStorage.setItem("counters", JSON.stringify(counters));
         window.dispatchEvent(new Event('storage'))
