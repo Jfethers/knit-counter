@@ -6,7 +6,7 @@ import Button from '../Button/Button';
 type Counter = {
     name: string,
     color: string,
-    startingValue: string,
+    startingValue: string | number,
 }
 
 interface IUpsertCounterProps {
@@ -22,10 +22,16 @@ const UpsertCounter: FunctionComponent<IUpsertCounterProps> = (props: IUpsertCou
 
     const onSubmit = (values: Counter) => {
         const countersClone : object[] = [...counters];
+        const parsedValue = parseInt(values.startingValue as string);
+        values.startingValue = parsedValue as number;
+
+        console.log('values', values);
         if (isNew) {
             countersClone.push(values);
             localStorage.setItem("counters", JSON.stringify(countersClone));
         } else {
+            // const parsedValue = parseInt(values.startingValue);
+
             countersClone.splice(index, 1, values);
             localStorage.setItem("counters", JSON.stringify(countersClone));
         }
@@ -41,9 +47,6 @@ const UpsertCounter: FunctionComponent<IUpsertCounterProps> = (props: IUpsertCou
                 subscription={{errors: true, values: true, valid: true, pristine: true }}
                 initialValues={counter}
                 render={({ handleSubmit, form, submitting, pristine, values, errors, valid }) => {
-                    console.log('valid', valid);
-                    console.log('erorrs', errors);
-                    console.log('pristine', pristine);
                     return (
                     <form className="form-body" onSubmit={handleSubmit}>
                         <div className="field-group">

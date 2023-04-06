@@ -12,7 +12,7 @@ interface ICounterProps {
     counter: {
         color: string,
         name: string,
-        startingValue: number,
+        startingValue: string,
     },
 }
 
@@ -29,8 +29,8 @@ const Counter: FunctionComponent<ICounterProps> = (props: ICounterProps) => {
     }
 
     const handleIncrement = () => {
-        console.log('counter', counter);
         const newCounter = {...counter}
+        newCounter.startingValue = newCounter.startingValue + 1;
         counters.splice(index, 1, newCounter);
         window.dispatchEvent(new Event('storage'))
     }

@@ -6,7 +6,7 @@ import Button from '../Button/Button'
 interface INavigationProps {
     counters: {
         name: string,
-        startingValue: number,
+        startingValue: string,
         color: string
     }[]
 }
